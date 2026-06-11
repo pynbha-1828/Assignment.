@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Leaderboard - QuizRank</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="leaderboard-container">
+
+        <h1>🏆 Leaderboard</h1>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Rank</th>
+
+                    <th>Name</th>
+
+                    <th>Score</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="leaderboardBody">
+
+            </tbody>
+
+        </table>
+
+        <br>
+
+        <button onclick="window.location.href='dashboard.html'">
+            ⬅ Back to Dashboard
+        </button>
+
+    </div>
+
+    <script>
+
+fetch("/leaderboard")
+    .then(res => res.json())
+    .then(data => {
+
+        const tbody =
+            document.getElementById("leaderboardBody");
+
+        tbody.innerHTML = "";
+
+        if (data.length === 0) {
+
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="3">
+                        No records available.
+                    </td>
+                </tr>
+            `;
+
+        } else {
+
+            data.forEach((player, index) => {
+
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td>${player.username}</td>
+                        <td>${player.score}</td>
+                    </tr>
+                `;
+
+            });
+
+        }
+
+    })
+    .catch(err => console.log(err));
+
+</script>
+</body>
+
+</html>

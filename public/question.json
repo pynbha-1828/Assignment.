@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "question": "What does HTML stand for?",
+    "options": [
+      "Hyper Text Markup Language",
+      "High Text Machine Language",
+      "Hyper Transfer Markup Language",
+      "Home Tool Markup Language"
+    ],
+    "answer": "Hyper Text Markup Language"
+  },
+  {
+    "id": 2,
+    "question": "Which language is used to style a web page?",
+    "options": [
+      "HTML",
+      "CSS",
+      "Java",
+      "Python"
+    ],
+    "answer": "CSS"
+  },
+  {
+    "id": 3,
+    "question": "Which language makes a website interactive?",
+    "options": [
+      "JavaScript",
+      "C",
+      "C++",
+      "SQL"
+    ],
+    "answer": "JavaScript"
+  },
+  {
+    "id": 4,
+    "question": "Which HTML tag is used for the largest heading?",
+    "options": [
+      "<h1>",
+      "<h6>",
+      "<head>",
+      "<p>"
+    ],
+    "answer": "<h1>"
+  },
+  {
+    "id": 5,
+    "question": "Which HTML tag is used to create a paragraph?",
+    "options": [
+      "<div>",
+      "<span>",
+      "<p>",
+      "<br>"
+    ],
+    "answer": "<p>"
+  },
+  {
+    "id": 6,
+    "question": "Which HTML tag is used to insert an image?",
+    "options": [
+      "<img>",
+      "<image>",
+      "<pic>",
+      "<src>"
+    ],
+    "answer": "<img>"
+  },
+  {
+    "id": 7,
+    "question": "Which CSS property changes the background color?",
+    "options": [
+      "color",
+      "font-color",
+      "background-color",
+      "bg"
+    ],
+    "answer": "background-color"
+  },
+  {
+    "id": 8,
+    "question": "Which CSS property changes the text color?",
+    "options": [
+      "font-style",
+      "text-color",
+      "color",
+      "background"
+    ],
+    "answer": "color"
+  },
+  {
+    "id": 9,
+    "question": "Which symbol is used to select a class in CSS?",
+    "options": [
+      "#",
+      ".",
+      "*",
+      "@"
+    ],
+    "answer": "."
+  },
+  {
+    "id": 10,
+    "question": "Which HTML tag is used to create a button?",
+    "options": [
+      "<input>",
+      "<btn>",
+      "<button>",
+      "<click>"
+    ],
+    "answer": "<button>"
+  }
+]

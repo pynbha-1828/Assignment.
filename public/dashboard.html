@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <h1>Welcome, <span id="welcomeUser">User</span> 👋</h1>
+
+        <div class="stats-container">
+
+            <div class="card">
+                <h2>Total Quizzes</h2>
+                <p id="totalQuiz">0</p>
+            </div>
+
+            <div class="card">
+                <h2>Highest Score</h2>
+                <p id="highestScore">0</p>
+            </div>
+
+            <div class="card">
+                <h2>Average</h2>
+                <p id="averageScore">0%</p>
+            </div>
+
+        </div>
+
+        <div class="button-container">
+
+            <button onclick="location.href='instruction.html'">
+                ▶ Start Quiz
+            </button>
+
+            <button onclick="location.href='leaderboard.html'">
+                🏆 View Leaderboard
+            </button>
+
+            <button onclick="location.href='result.html'">
+                📊 View Results
+            </button>
+
+            <button onclick="location.href='profile.html'">
+                👤 Profile
+            </button>
+
+            <button onclick="logout()">
+                🚪 Logout
+            </button>
+
+        </div>
+
+    </div>
+
+  <script>
+const userId = localStorage.getItem("userId");
+const username = localStorage.getItem("currentUser") || "User";
+
+document.getElementById("welcomeUser").innerText = username;
+
+fetch(`/dashboard/${userId}`)
+    .then(res => res.json())
+    .then(data => {
+
+        document.getElementById("totalQuiz").innerText =
+            data.totalQuiz || 0;
+
+        document.getElementById("highestScore").innerText =
+            data.highestScore || 0;
+
+        document.getElementById("averageScore").innerText =
+            data.averageScore
+                ? Number(data.averageScore).toFixed(1) + "%"
+                : "0%";
+    });
+
+function logout() {
+    localStorage.clear();
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+
+</html>

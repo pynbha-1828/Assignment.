@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - QuizRank</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="quiz-container">
+
+        <!-- Top Bar -->
+        <div class="quiz-header">
+
+            <h2>QuizRank</h2>
+
+            <div id="timer">
+                05:00
+            </div>
+
+        </div>
+
+        <!-- Question Number -->
+        <div class="question-number">
+            Question <span id="currentQuestion">1</span> of
+            <span id="totalQuestions">10</span>
+        </div>
+
+        <!-- Question -->
+        <div class="question-box">
+
+            <h3 id="questionText">
+                Question will appear here...
+            </h3>
+
+        </div>
+
+        <!-- Options -->
+        <div class="options">
+
+            <label>
+                <input type="radio" name="option">
+                <span id="option1">Option 1</span>
+            </label>
+
+            <label>
+                <input type="radio" name="option">
+                <span id="option2">Option 2</span>
+            </label>
+
+            <label>
+                <input type="radio" name="option">
+                <span id="option3">Option 3</span>
+            </label>
+
+            <label>
+                <input type="radio" name="option">
+                <span id="option4">Option 4</span>
+            </label>
+
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="button-group">
+
+    <button id="prevBtn">
+        Previous
+    </button>
+
+    <button id="nextBtn">
+        Next
+    </button>
+
+    <button id="submitBtn" style="display:none;">
+        Submit
+    </button>
+
+</div>
+
+    </div>
+
+    <script src="quiz.js"></script>
+    <script src="timer.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+I<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - QuizRank</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>👤 My Profile</h1>
+
+        <div class="profile-card">
+
+            <p>
+                <strong>Name:</strong>
+                <span id="name">Loading...</span>
+            </p>
+
+            <p>
+                <strong>Joined Date:</strong>
+                <span id="joined">Loading...</span>
+            </p>
+
+            <p>
+                <strong>Highest Score:</strong>
+                <span id="highest">Loading...</span>
+            </p>
+
+            <p>
+                <strong>Average Score:</strong>
+                <span id="average">Loading...</span>
+            </p>
+
+        </div>
+
+        <br>
+
+        <button onclick="window.location.href='dashboard.html'">
+            ⬅ Back to Dashboard
+        </button>
+
+    </div>
+
+    <script>
+
+        const userId = localStorage.getItem("userId");
+
+        if (!userId) {
+
+            alert("Please login first.");
+            window.location.href = "login.html";
+
+        } else {
+
+            fetch(`/profile/${userId}`)
+                .then(response => response.json())
+                .then(data => {
+
+                    document.getElementById("name").textContent =
+                        data.fullname || "Not Available";
+
+                    document.getElementById("joined").textContent =
+                        data.completed_at
+                            ? new Date(data.completed_at).toLocaleDateString()
+                            : "Not Available";
+
+                    document.getElementById("highest").textContent =
+                        data.correct_answers ?? 0;
+
+                    document.getElementById("average").textContent =
+                        data.percentage
+                            ? Number(data.percentage).toFixed(2) + "%"
+                            : "0.00%";
+
+                })
+                .catch(error => {
+
+                    console.log(error);
+
+                    alert("Failed to load profile information.");
+
+                });
+
+        }
+
+    </script>
+
+</body>
+</html>
